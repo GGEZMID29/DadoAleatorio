@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #282c34;
+    color: white;
+}
+
+.container {
+    text-align: center;
+}
+
+/* Tamaño del dado */
+#dice {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    perspective: 2000px;
+}
+
+.dice {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    transition: transform 1s ease-in-out;
+}
+
+/* Caras */
+.face {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border: 2px solid #000;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+/* Puntos */
+.dot {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+/* Colocar cada cara del cubo */
+.one { transform: rotateY(0deg) translateZ(75px); }
+.two { transform: rotateY(90deg) translateZ(75px); }
+.three { transform: rotateY(180deg) translateZ(75px); }
+.four { transform: rotateY(-90deg) translateZ(75px); }
+.five { transform: rotateX(90deg) translateZ(75px); }
+.six { transform: rotateX(-90deg) translateZ(75px); }
+
+/* Colocación de puntos en las caras */
+.face.one .dot:nth-child(1) {
+    grid-area: 2 / 2;
+}
+
+.face.two .dot:nth-child(1) {
+    grid-area: 1 / 1;
+}
+.face.two .dot:nth-child(2) {
+    grid-area: 3 / 3;
+}
+
+.face.three .dot:nth-child(1) {
+    grid-area: 1 / 1;
+}
+.face.three .dot:nth-child(2) {
+    grid-area: 2 / 2;
+}
+.face.three .dot:nth-child(3) {
+    grid-area: 3 / 3;
+}
+
+.face.four .dot:nth-child(1) {
+    grid-area: 1 / 1;
+}
+.face.four .dot:nth-child(2) {
+    grid-area: 1 / 3;
+}
+.face.four .dot:nth-child(3) {
+    grid-area: 3 / 1;
+}
+.face.four .dot:nth-child(4) {
+    grid-area: 3 / 3;
+}
+
+.face.five .dot:nth-child(1) {
+    grid-area: 1 / 1;
+}
+.face.five .dot:nth-child(2) {
+    grid-area: 1 / 3;
+}
+.face.five .dot:nth-child(3) {
+    grid-area: 2 / 2;
+}
+.face.five .dot:nth-child(4) {
+    grid-area: 3 / 1;
+}
+.face.five .dot:nth-child(5) {
+    grid-area: 3 / 3;
+}
+
+.face.six .dot:nth-child(1) {
+    grid-area: 1 / 1;
+}
+.face.six .dot:nth-child(2) {
+    grid-area: 1 / 3;
+}
+.face.six .dot:nth-child(3) {
+    grid-area: 2 / 1;
+}
+.face.six .dot:nth-child(4) {
+    grid-area: 2 / 3;
+}
+.face.six .dot:nth-child(5) {
+    grid-area: 3 / 1;
+}
+.face.six .dot:nth-child(6) {
+    grid-area: 3 / 3;
+}
+
+/* Diseño del botón */
+button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: #61dafb;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #21a1f1;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
